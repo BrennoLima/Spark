@@ -1,0 +1,64 @@
+.landing-container {
+	max-width: 100vw;
+	padding: 0px !important;
+	font-family: 'Raleway', sans-serif;
+}
+.panel-container {
+	min-height: 85vh;
+}
+.left-panel {
+	background-color: #2a9d8f;
+	text-align: left;
+}
+.right-panel {
+	background-color: #e9c46a;
+}
+.about {
+	justify-content: center;
+}
+.testimonials {
+	margin-top: 2rem;
+}
+.toast {
+	margin: auto;
+}
+.title-container {
+	width: 100%;
+	padding: 3rem;
+	margin-left: 2rem;
+}
+.title {
+	padding-left: 0rem !important;
+	font-size: 3rem;
+	color: white;
+}
+.subtitle {
+	margin-top: 2rem;
+	padding-left: 0rem !important;
+	font-size: 3rem;
+	color: white;
+}
+.subtitle2 {
+	/*color: #b6eb7a;*/
+	color: white;
+	font-size: 2rem;
+}
+
+.landingpage-pic {
+	object-fit: cover;
+}
+
+@media screen and (max-width: 900px) {
+	.title-container {
+		margin: 0rem;
+		padding: 1rem;
+	}
+	.title {
+		margin-top: 0rem;
+		font-size: 2rem;
+	}
+	.subtitle {
+		margin-top: 2rem;
+		font-size: 2rem;
+	}
+}

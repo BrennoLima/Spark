@@ -1,0 +1,108 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.footer {
+	width: 100%;
+	background-color: #fff8cd;
+}
+
+.empty1 {
+	height: 4px;
+	background: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 0.75),
+		rgba(0, 0, 0, 0)
+	);
+}
+
+.empty2 {
+	height: 2px;
+	background: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 0.75),
+		rgba(0, 0, 0, 0)
+	);
+}
+
+.footerContent {
+	width: 30%;
+	margin: 1% auto;
+	margin-bottom: 0;
+}
+
+.footerContent p {
+	padding: 0 0 1% 0;
+	font-size: 1.4vw;
+}
+
+.footerContent p:hover {
+	font-size: 1.5vw;
+}
+
+/*-------------------------Responsive--------------------------*/
+
+@media only screen and (max-width: 992px) {
+	.footerContent p {
+		font-size: 1.8vw;
+	}
+
+	.footerContent p:hover {
+		font-size: 1.9vw;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.footerContent p {
+		font-size: 2.3vw;
+	}
+
+	.footerContent p:hover {
+		font-size: 2.4vw;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.footerContent {
+		width: 40%;
+	}
+
+	.footerContent p {
+		font-size: 2.9vw;
+	}
+
+	.footerContent p:hover {
+		font-size: 3vw;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.footerContent {
+		width: 47%;
+	}
+
+	.footerContent p {
+		font-size: 3.5vw;
+	}
+
+	.footerContent p:hover {
+		font-size: 3.6vw;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.footerContent {
+		width: 60%;
+	}
+
+	.footerContent p {
+		font-size: 4.2vw;
+	}
+
+	.footerContent p:hover {
+		font-size: 4.3vw;
+	}
+}

@@ -1,0 +1,181 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.mainContent {
+	background: linear-gradient(#a8dda8, #fff8cd);
+	width: 100%;
+}
+
+span {
+	margin-left: 3%;
+}
+
+.content {
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 2%;
+}
+
+.content article,
+.content aside {
+	display: inline-block;
+	padding: 0 1%;
+	border: 1px dashed black;
+}
+
+.content article {
+	width: 60%;
+}
+
+.content aside {
+	width: 30%;
+	float: right;
+}
+
+article .empty1 {
+	display: none;
+}
+
+article h1,
+aside h1 {
+	text-align: center;
+	font-size: 1.9vw;
+	margin-bottom: 3%;
+}
+
+article p {
+	font-size: 1.4vw;
+}
+
+aside figure {
+	margin-bottom: 3%;
+	font-size: 1.4vw;
+}
+
+.map {
+	border: 1px dashed black;
+	width: 80%;
+	height: 400px;
+	margin: 0 auto;
+	margin-bottom: 5%;
+}
+
+/*-------------------------Responsive--------------------------*/
+@media only screen and (max-width: 992px) {
+	.map {
+		height: 300px;
+	}
+
+	.content aside {
+		width: 35%;
+	}
+
+	article h1,
+	aside h1 {
+		font-size: 2.3vw;
+	}
+
+	article p,
+	aside figure {
+		font-size: 1.8vw;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.last {
+		margin-bottom: 0;
+		padding-bottom: 5%; /*0*/
+	}
+
+	.last blockquote {
+		margin-bottom: 0;
+	}
+
+	.last .empty2 {
+		display: none;
+	}
+
+	.content article .empty1 {
+		display: block;
+	}
+
+	.content article,
+	.content aside {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.content article {
+		width: 100%;
+	}
+
+	.content aside {
+		width: 70%;
+		float: none;
+		margin-top: 4%;
+	}
+
+	article h1,
+	aside h1 {
+		font-size: 3.2vw;
+	}
+
+	article p,
+	aside figure {
+		font-size: 2.4vw;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.map {
+		width: 90%;
+	}
+
+	article h1,
+	aside h1 {
+		font-size: 3.8vw;
+	}
+
+	article p,
+	aside figure {
+		font-size: 2.8vw;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.map {
+		height: 250px;
+	}
+
+	.content aside {
+		width: 80%;
+	}
+
+	article h1,
+	aside h1 {
+		font-size: 4.6vw;
+	}
+
+	article p,
+	aside figure {
+		font-size: 3.5vw;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.map {
+		height: 200px;
+	}
+
+	article h1,
+	aside h1 {
+		font-size: 5.5vw;
+	}
+
+	article p,
+	aside figure {
+		font-size: 4.2vw;
+	}
+}
