@@ -79,7 +79,7 @@ const StudentHome = () => {
 						/>
 					</div>
 				</div>
-				<Collapse isOpen={exerciseList}>
+				<Collapse isOpen={quizzesList}>
 					<ListGroup>
 						{!loading && student !== null && student.exercises.length > 0 && (
 							<ListGroup.Item>

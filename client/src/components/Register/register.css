@@ -1,6 +1,7 @@
 .register-container {
 	max-width: 100vw;
 	background-color: aliceblue;
+	min-height: 85vh;
 }
 .register-title {
 	padding-top: 2rem;

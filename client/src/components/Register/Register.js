@@ -39,9 +39,9 @@ const Register = () => {
 	}
 	return (
 		<>
-			<div className='container-fluid register-container pb-3'>
-				<div className='container'>
-					<h1 className='register-title'>Create your account</h1>
+			<div className='container-fluid register-container'>
+				<div className='container pt-5'>
+					<h1 className='register-title pb-5'>Create your account</h1>
 					<Form onSubmit={(e) => onSubmit(e)}>
 						<FormGroup>
 							<Label htmlFor='name'>Name</Label>
