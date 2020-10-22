@@ -18,7 +18,7 @@ export const loadStudent = () => async (dispatch) => {
 			type: LOAD_STUDENT,
 			payload: res.data,
 		});
-		dispatch(loadStudentExercises());
+		dispatch(loadStudentExercises(res.data.email));
 	} catch (error) {
 		dispatch({
 			type: LOAD_STUDENT_FAIL,
@@ -26,34 +26,19 @@ export const loadStudent = () => async (dispatch) => {
 		dispatch(setAlert('Failed to load student profile', 'danger'));
 	}
 };
-// Load all exercises
-export const loadStudentExercises = () => async (dispatch) => {
+// Load all students exercises
+export const loadStudentExercises = (studentEmail) => async (dispatch) => {
 	try {
-		const res = await axios.get('/api/profile');
-		const exerciseList = [];
-		res.data.exercises.map((exerciseId) =>
-			dispatch(loadStudentExercise(exerciseId, exerciseList))
-		);
+		const res = await axios.get(`/api/exercise/all/${studentEmail}`);
 		dispatch({
 			type: LOAD_ACTIVITIES,
-			payload: exerciseList,
+			payload: res.data,
 		});
 	} catch (error) {
 		dispatch({
 			type: LOAD_ACTIVITIES_FAIL,
 		});
 		dispatch(setAlert('Failed to load student profile', 'danger'));
-	}
-};
-// Load exercise by id
-export const loadStudentExercise = (exerciseId, exerciseList) => async (
-	dispatch
-) => {
-	try {
-		const res = await axios.get(`/api/exercise/student/${exerciseId}`);
-		exerciseList.push(res.data);
-	} catch (error) {
-		dispatch(setAlert('Failed to add activities', 'danger'));
 	}
 };
 

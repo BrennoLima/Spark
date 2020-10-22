@@ -13,10 +13,10 @@ const StudentHome = () => {
 	}, [dispatch]);
 
 	// Exercise list collapse controllers
-	const [exerciseList, collapseExerciseList] = useState(false);
+	const [exerciseList, collapseExerciseList] = useState(true);
 
 	// Quiz list collapse controllers
-	const [quizzesList, collapseQuizzesList] = useState(false);
+	const [quizzesList, collapseQuizzesList] = useState(true);
 
 	const { student, loading } = useSelector((state) => state.student);
 

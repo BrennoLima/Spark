@@ -223,4 +223,28 @@ router.delete('/:studentEmail/:exerciseId', auth, async (req, res) => {
 	}
 });
 
+// @route   GET api/exercise/all/:studentEmail
+// @desc    Get exercises from a student
+// @access  Private
+router.get('/all/:studentEmail', auth, async (req, res) => {
+	try {
+		const student = await Student.findOne({ email: req.params.studentEmail });
+		if (!student) {
+			return res.status(404).json({ msg: 'Student not found' });
+		}
+		var list = [];
+
+		await Promise.all(
+			student.exercises.map((exercise) =>
+				Exercise.findById(exercise).then((result) => list.unshift(result))
+			)
+		);
+
+		res.json(list);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server error');
+	}
+});
+
 module.exports = router;
