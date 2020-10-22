@@ -66,7 +66,7 @@ router.post(
 			if (!errors.isEmpty()) {
 				return res.status(400).json({ errors: errors.array() });
 			}
-			let teacher = await User.findById(req.user.id);
+			let teacher = await User.findById(req.user.id).select('-password');
 
 			if (!teacher.isTeacher) {
 				return res.status(401).json({ msg: 'Unauthorized' });
@@ -121,7 +121,7 @@ router.post(
 // @access  Private
 router.delete('/delete/:exerciseId', auth, async (req, res) => {
 	try {
-		let teacher = await User.findById(req.user.id);
+		let teacher = await User.findById(req.user.id).select('-password');
 
 		if (!teacher.isTeacher) {
 			return res.status(401).json({ msg: 'Unauthorized' });
@@ -151,7 +151,7 @@ router.delete('/delete/:exerciseId', auth, async (req, res) => {
 // @access  Private
 router.post('/:studentEmail/:exerciseId', auth, async (req, res) => {
 	try {
-		let teacher = await User.findById(req.user.id);
+		let teacher = await User.findById(req.user.id).select('-password');
 
 		if (!teacher.isTeacher) {
 			return res.status(401).json({ msg: 'Unauthorized' });
@@ -188,7 +188,7 @@ router.post('/:studentEmail/:exerciseId', auth, async (req, res) => {
 // @access  Private
 router.delete('/:studentEmail/:exerciseId', auth, async (req, res) => {
 	try {
-		let teacher = await User.findById(req.user.id);
+		let teacher = await User.findById(req.user.id).select('-password');
 
 		if (!teacher.isTeacher) {
 			return res.status(401).json({ msg: 'Unauthorized' });

@@ -144,7 +144,7 @@ router.delete('/', auth, async (req, res) => {
 // @access  Private
 router.put('/add/:email', auth, async (req, res) => {
 	try {
-		let teacher = await User.findById(req.user.id);
+		let teacher = await User.findById(req.user.id).select('-password');
 
 		if (!teacher.isTeacher) {
 			return res.status(401).json({ msg: 'Unauthorized' });
@@ -192,7 +192,7 @@ router.put('/add/:email', auth, async (req, res) => {
 // @access  Private
 router.put('/remove/:email', auth, async (req, res) => {
 	try {
-		let teacher = await User.findById(req.user.id);
+		let teacher = await User.findById(req.user.id).select('-password');
 
 		if (!teacher.isTeacher) {
 			return res.status(401).json({ msg: 'Unauthorized' });
@@ -236,7 +236,7 @@ router.put('/remove/:email', auth, async (req, res) => {
 // @access  Private
 router.get('/students', auth, async (req, res) => {
 	try {
-		let teacher = await User.findById(req.user.id);
+		let teacher = await User.findById(req.user.id).select('-password');
 
 		if (!teacher.isTeacher) {
 			return res.status(401).json({ msg: 'Unauthorized' });
