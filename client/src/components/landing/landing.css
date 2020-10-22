@@ -45,7 +45,7 @@
 }
 
 .landingpage-pic {
-	object-fit: fill;
+	object-fit: contain;
 }
 
 @media screen and (max-width: 900px) {
@@ -60,5 +60,8 @@
 	.subtitle {
 		margin-top: 2rem;
 		font-size: 2rem;
+	}
+	.panel-container {
+		min-height: none;
 	}
 }
