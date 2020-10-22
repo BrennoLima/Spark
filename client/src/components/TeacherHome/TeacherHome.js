@@ -9,7 +9,8 @@ import ActivitieItem from '../layout/ActivitieItem';
 import CreateActivityModal from './CreateActivityModal';
 import AddStudentModal from './AddStudentModal';
 import { loadTeacher } from '../../actions/teacher';
-const Btn1 = styled(Button)`
+
+const Btn5 = styled(Button)`
 	border-radius: 0.5rem;
 	background-color: #f4a261;
 	color: black;
@@ -66,21 +67,21 @@ const TeacherHome = () => {
 						<h1>Welcome {!loading && teacher !== null && teacher.name}</h1>
 					</div>
 					<div className='row justify-content-left mb-5'>
-						<Btn1
+						<Btn5
 							variant='light'
 							className='m-1 mr-3 mb-2'
 							onClick={openAddStudent}
 						>
 							Add Student
-						</Btn1>
+						</Btn5>
 
-						<Btn1
+						<Btn5
 							variant='light'
 							className='m-1 mr-3 mb-2'
 							onClick={openCreateActivity}
 						>
 							Create Activity
-						</Btn1>
+						</Btn5>
 					</div>
 				</div>
 

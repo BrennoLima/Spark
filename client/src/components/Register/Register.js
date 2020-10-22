@@ -39,69 +39,71 @@ const Register = () => {
 	}
 	return (
 		<>
-			<div className='container register-container pb-3'>
-				<h1 className='register-title'>Create your account</h1>
-				<Form onSubmit={(e) => onSubmit(e)}>
-					<FormGroup>
-						<Label htmlFor='name'>Name</Label>
-						<Input
-							type='text'
-							name='name'
-							id='name'
-							value={name}
-							onChange={(e) => onChange(e)}
-							required
-							placeholder='John Doe'
-						/>
-					</FormGroup>
-					<FormGroup>
-						<Label htmlFor='email'>Email</Label>
-						<Input
-							type='email'
-							name='email'
-							id='email'
-							value={email}
-							onChange={(e) => onChange(e)}
-							required
-							placeholder='jdoe@gmail.com'
-						/>
-					</FormGroup>
-					<FormGroup>
-						<Label htmlFor='password'>Password</Label>
-						<Input
-							type='password'
-							name='password'
-							id='password'
-							value={password}
-							onChange={(e) => onChange(e)}
-							required
-						/>
-					</FormGroup>
-					<FormGroup>
-						<Label htmlFor='school'>School</Label>
-						<Input
-							type='text'
-							name='school'
-							id='school'
-							value={school}
-							onChange={(e) => onChange(e)}
-							required
-						/>
-					</FormGroup>
-					<FormGroup check>
-						<Label check>
+			<div className='container-fluid register-container pb-3'>
+				<div className='container'>
+					<h1 className='register-title'>Create your account</h1>
+					<Form onSubmit={(e) => onSubmit(e)}>
+						<FormGroup>
+							<Label htmlFor='name'>Name</Label>
 							<Input
-								name='isTeacher'
-								type='checkbox'
-								checked={isTeacher}
-								onClick={handleCheckBox}
-								onChange={handleCheckBox}
-							/>{' '}
-							Teacher
-						</Label>
-					</FormGroup>
-					<Button className='register-submit-btn'>Submit</Button>
-				</Form>
+								type='text'
+								name='name'
+								id='name'
+								value={name}
+								onChange={(e) => onChange(e)}
+								required
+								placeholder='John Doe'
+							/>
+						</FormGroup>
+						<FormGroup>
+							<Label htmlFor='email'>Email</Label>
+							<Input
+								type='email'
+								name='email'
+								id='email'
+								value={email}
+								onChange={(e) => onChange(e)}
+								required
+								placeholder='jdoe@gmail.com'
+							/>
+						</FormGroup>
+						<FormGroup>
+							<Label htmlFor='password'>Password</Label>
+							<Input
+								type='password'
+								name='password'
+								id='password'
+								value={password}
+								onChange={(e) => onChange(e)}
+								required
+							/>
+						</FormGroup>
+						<FormGroup>
+							<Label htmlFor='school'>School</Label>
+							<Input
+								type='text'
+								name='school'
+								id='school'
+								value={school}
+								onChange={(e) => onChange(e)}
+								required
+							/>
+						</FormGroup>
+						<FormGroup check>
+							<Label check>
+								<Input
+									name='isTeacher'
+									type='checkbox'
+									checked={isTeacher}
+									onClick={handleCheckBox}
+									onChange={handleCheckBox}
+								/>{' '}
+								Teacher
+							</Label>
+						</FormGroup>
+						<Button className='register-submit-btn'>Submit</Button>
+					</Form>
+				</div>
 			</div>
 		</>
 	);
