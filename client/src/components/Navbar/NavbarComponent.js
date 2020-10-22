@@ -46,11 +46,17 @@ const NavbarComponent = () => {
 	const onChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
-
+	const clearForm = () => {
+		setFormData({
+			email: '',
+			password: '',
+		});
+	};
 	const dispatch = useDispatch();
 	const onSubmit = (e) => {
 		e.preventDefault();
 		dispatch(login({ email, password }));
+		clearForm();
 	};
 
 	let history = useHistory();
