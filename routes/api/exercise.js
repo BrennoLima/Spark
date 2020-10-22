@@ -183,4 +183,44 @@ router.post('/:studentEmail/:exerciseId', auth, async (req, res) => {
 	}
 });
 
+// @route   DELETE api/exercise/:studentEmail/:exerciseId
+// @desc    Delete an exercise from a student profile
+// @access  Private
+router.delete('/:studentEmail/:exerciseId', auth, async (req, res) => {
+	try {
+		let teacher = await User.findById(req.user.id);
+
+		if (!teacher.isTeacher) {
+			return res.status(401).json({ msg: 'Unauthorized' });
+		}
+		teacher = await Teacher.findOne({ user: teacher });
+
+		let exercise = await Exercise.findById(req.params.exerciseId);
+		if (!exercise) {
+			return res.status(404).json({ msg: 'Exercise not found' });
+		}
+
+		let student = await Student.findOne({ email: req.params.studentEmail });
+		if (!student) {
+			return res.status(404).json({ msg: 'Student not found' });
+		}
+		let save = 0;
+		student.exercises.map((exc, index) => {
+			if (JSON.stringify(exc._id) === JSON.stringify(exercise._id)) {
+				student.exercises.splice(index, 1);
+				save = 1;
+			}
+		});
+		if (save === 1) {
+			await student.save();
+			return res.json(student);
+		}
+
+		return res.status(400).json({ msg: 'Exercise already deleted' });
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server error');
+	}
+});
+
 module.exports = router;

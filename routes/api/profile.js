@@ -99,6 +99,21 @@ router.get('/', auth, async (req, res) => {
 	}
 });
 
+// @route   GET api/profile/student/:studentEmail
+// @desc    Get a student profile by email
+// @access  Private
+router.get('/student/:studentEmail', auth, async (req, res) => {
+	try {
+		const student = await Student.findOne({ email: req.params.studentEmail });
+		if (!student) {
+			return res.status(400).json({ msg: 'Student not found' });
+		}
+		return res.json(student);
+	} catch (error) {
+		console.error(errors.message);
+		return res.status(500).send('Server error');
+	}
+});
 // @route   DELETE api/profile
 // @desc    Delete the user and profile
 // @access  Private

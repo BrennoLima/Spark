@@ -29,6 +29,15 @@ export const LoadTeacherActivities = (teacherEmail) => async (dispatch) => {
 // Remove activitie by id
 export const RemoveActivity = (id) => async (dispatch) => {
 	try {
+		let students = await axios.get('/api/profile/students'); // get teacher's students
+		students = students.data; // list of student objects contains studentEmail
+		students.map(async (student) => {
+			await axios.delete(`/api/exercise/${student.studentEmail}/${id}`);
+			dispatch(
+				setAlert(`Exercise deleted for ${student.studentEmail}`, 'info')
+			);
+		});
+
 		const res = await axios.delete(`/api/exercise/delete/${id}`);
 		dispatch({
 			type: REMOVE_ACTIVITY,
@@ -100,9 +109,17 @@ export const SendActivitie = (studentEmail, activitieId) => async (
 	dispatch
 ) => {
 	try {
-		await axios.post(`/api/exercise/${studentEmail}/${activitieId}`);
-		dispatch(setAlert('Activity sent!', 'success'));
+		let students = await axios.get('/api/profile/students'); // get teacher's students
+		students = students.data;
+
+		if (students.some((student) => student.studentEmail === studentEmail)) {
+			await axios.post(`/api/exercise/${studentEmail}/${activitieId}`);
+			dispatch(setAlert('Activity sent!', 'success'));
+		} else {
+			dispatch(setAlert(`${studentEmail} is not your student`, 'danger'));
+		}
 	} catch (error) {
+		console.error(error.message);
 		dispatch(setAlert('Failed to send activitie', 'danger'));
 	}
 };
