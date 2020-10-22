@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import './navbar.css';
-import { Nav, Navbar, Button, Image, Modal, Form } from 'react-bootstrap';
+import { Button, Image, Modal, Form } from 'react-bootstrap';
+import {
+	Collapse,
+	Navbar,
+	NavbarToggler,
+	NavbarBrand,
+	Nav,
+	NavItem,
+} from 'reactstrap';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Brand from '../../assets/images/Brand.png';
@@ -36,7 +44,6 @@ const StyledLink = styled(Link)`
 `;
 
 const NavbarComponent = () => {
-	const [show, setShow] = useState(false);
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
@@ -74,7 +81,10 @@ const NavbarComponent = () => {
 	const logOut = (e) => {
 		dispatch(logout());
 	};
+	const [isOpen, setIsOpen] = useState(false);
 
+	const toggle = () => setIsOpen(!isOpen);
+	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
@@ -135,42 +145,52 @@ const NavbarComponent = () => {
 					</div>
 				</Modal.Footer>
 			</Modal>
-			<Navbar collapseOnSelect expand='lg' variant='dark'>
-				<Navbar.Brand href='/'>
+			<Navbar dark expand='md'>
+				<NavbarBrand href='/'>
 					<Image src={Brand} alt='Logo' className='logo' />{' '}
 					<h1 className='brand-title'>
 						<b>Spark Learning</b>
 					</h1>
-				</Navbar.Brand>
-				<Navbar.Toggle aria-controls='responsive-navbar-nav' />
-				<Navbar.Collapse id='responsive-navbar-nav'>
-					<Nav className='mr-auto'></Nav>
-
-					{!auth.loading && auth.isAuthenticated && auth.user !== null ? (
-						<>
-							<StyledLink
-								to={auth.user.isTeacher ? '/teacherhome' : '/studenthome'}
-							>
-								<Btn1 variant='outline-light'>Dashboard</Btn1>
-							</StyledLink>
-							<StyledLink to='/account'>
-								<Btn1 variant='outline-light'>My Account</Btn1>
-							</StyledLink>
-							<Btn1 variant='danger' onClick={(e) => logOut(e)}>
-								Logout
-							</Btn1>
-						</>
-					) : (
-						<>
-							<Btn1 variant='outline-light' onClick={handleShow}>
-								Login
-							</Btn1>
-							<StyledLink to='/register'>
-								<Btn2 variant='success'>Sign Up</Btn2>
-							</StyledLink>
-						</>
-					)}
-				</Navbar.Collapse>
+				</NavbarBrand>
+				<NavbarToggler onClick={toggle} />
+				<Collapse isOpen={isOpen} navbar>
+					<Nav className='ml-auto' navbar>
+						{!auth.loading && auth.isAuthenticated && auth.user !== null ? (
+							<>
+								<NavItem>
+									<StyledLink
+										to={auth.user.isTeacher ? '/teacherhome' : '/studenthome'}
+									>
+										<Btn1 variant='outline-light'>Dashboard</Btn1>
+									</StyledLink>
+								</NavItem>
+								<NavItem>
+									<StyledLink to='/account'>
+										<Btn1 variant='outline-light'>My Account</Btn1>
+									</StyledLink>
+								</NavItem>
+								<NavItem>
+									<Btn1 variant='danger' onClick={(e) => logOut(e)}>
+										Logout
+									</Btn1>
+								</NavItem>
+							</>
+						) : (
+							<>
+								<NavItem>
+									<Btn1 variant='outline-light' onClick={handleShow}>
+										Login
+									</Btn1>
+								</NavItem>
+								<NavItem>
+									<StyledLink to='/register'>
+										<Btn2 variant='success'>Sign Up</Btn2>
+									</StyledLink>
+								</NavItem>
+							</>
+						)}
+					</Nav>
+				</Collapse>
 			</Navbar>
 		</>
 	);
