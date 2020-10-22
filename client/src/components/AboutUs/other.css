@@ -22,7 +22,6 @@ span {
 .content aside {
 	display: inline-block;
 	padding: 0 1%;
-	border: 1px dashed black;
 }
 
 .content article {
@@ -55,7 +54,6 @@ aside figure {
 }
 
 .map {
-	border: 1px dashed black;
 	width: 80%;
 	height: 400px;
 	margin: 0 auto;

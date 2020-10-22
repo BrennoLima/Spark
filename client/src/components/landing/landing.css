@@ -45,7 +45,7 @@
 }
 
 .landingpage-pic {
-	object-fit: contain;
+	object-fit: fill;
 }
 
 @media screen and (max-width: 900px) {
