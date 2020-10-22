@@ -1,11 +1,10 @@
 import {
 	LOAD_STUDENT,
 	LOAD_STUDENT_FAIL,
-	ADD_ACTIVITY,
-	ADD_ACTIVITY_FAIL,
 	LOAD_ACTIVITIES_FAIL,
 	ADD_MARK,
 	ADD_MARK_FAIL,
+	LOAD_ACTIVITIES,
 } from '../actions/types';
 import axios from 'axios';
 import { setAlert } from './alert';
@@ -19,6 +18,7 @@ export const loadStudent = () => async (dispatch) => {
 			type: LOAD_STUDENT,
 			payload: res.data,
 		});
+		dispatch(loadStudentExercises());
 	} catch (error) {
 		dispatch({
 			type: LOAD_STUDENT_FAIL,
@@ -30,9 +30,15 @@ export const loadStudent = () => async (dispatch) => {
 export const loadStudentExercises = () => async (dispatch) => {
 	try {
 		const res = await axios.get('/api/profile');
+		const exerciseList = [];
 		res.data.exercises.map((exerciseId) =>
-			dispatch(loadStudentExercise(exerciseId))
+			dispatch(loadStudentExercise(exerciseId, exerciseList))
 		);
+
+		dispatch({
+			type: LOAD_ACTIVITIES,
+			payload: exerciseList,
+		});
 		dispatch(setAlert('Activities loaded', 'success'));
 	} catch (error) {
 		dispatch({
@@ -42,18 +48,13 @@ export const loadStudentExercises = () => async (dispatch) => {
 	}
 };
 // Load exercise by id
-export const loadStudentExercise = (exerciseId) => async (dispatch) => {
+export const loadStudentExercise = (exerciseId, exerciseList) => async (
+	dispatch
+) => {
 	try {
 		const res = await axios.get(`/api/exercise/student/${exerciseId}`);
-
-		dispatch({
-			type: ADD_ACTIVITY,
-			payload: res.data,
-		});
+		exerciseList.push(res.data);
 	} catch (error) {
-		dispatch({
-			type: ADD_ACTIVITY_FAIL,
-		});
 		dispatch(setAlert('Failed to add activities', 'danger'));
 	}
 };

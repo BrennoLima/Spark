@@ -43,7 +43,7 @@ const TeacherHome = () => {
 	const [exerciseList, collapseExerciseList] = useState(true);
 
 	// Quizz list collapse controllers
-	const [quizzList, collapseQuizzList] = useState(true);
+	const [quizzesList, collapsequizzesList] = useState(true);
 
 	const { teacher, loading } = useSelector((state) => state.teacher);
 
@@ -172,11 +172,11 @@ const TeacherHome = () => {
 						<div className='col'>
 							<span
 								className='fas fa-angle-down collapse-span'
-								onClick={() => collapseQuizzList(!quizzList)}
+								onClick={() => collapsequizzesList(!quizzesList)}
 							/>
 						</div>
 					</div>
-					<Collapse isOpen={quizzList}>
+					<Collapse isOpen={quizzesList}>
 						<ListGroup>
 							{!activities.loading &&
 								activities.activities &&

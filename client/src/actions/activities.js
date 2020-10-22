@@ -13,7 +13,7 @@ import {
 export const LoadTeacherActivities = (teacherEmail) => async (dispatch) => {
 	try {
 		const res = await axios.get(`/api/exercise/${teacherEmail}`);
-
+		console.log(res.data);
 		dispatch({
 			type: LOAD_ACTIVITIES,
 			payload: res.data,
@@ -26,7 +26,7 @@ export const LoadTeacherActivities = (teacherEmail) => async (dispatch) => {
 	}
 };
 
-// Remove activitie by id
+// Remove activitiy by id
 export const RemoveActivity = (id) => async (dispatch) => {
 	try {
 		let students = await axios.get('/api/profile/students'); // get teacher's students
@@ -95,7 +95,7 @@ export const AddActivity = (
 			type: ADD_ACTIVITY,
 			payload: res.data,
 		});
-		dispatch(setAlert('Activitie created', 'success'));
+		dispatch(setAlert('Activity created', 'success'));
 	} catch (error) {
 		dispatch(setAlert('Failed to add activity', 'danger'));
 		dispatch({
@@ -120,6 +120,6 @@ export const SendActivitie = (studentEmail, activitieId) => async (
 		}
 	} catch (error) {
 		console.error(error.message);
-		dispatch(setAlert('Failed to send activitie', 'danger'));
+		dispatch(setAlert('Failed to send activity', 'danger'));
 	}
 };

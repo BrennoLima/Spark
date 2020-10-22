@@ -106,7 +106,7 @@ const CreateActivity = ({ CreateActivity, closeCreateActivity }) => {
 					<Form.Group controlId='formBasicCheckbox'>
 						<Form.Check
 							type='checkbox'
-							label='Quizz'
+							label='Quiz'
 							value={isQuizz}
 							onClick={() => setIsQuizz(!isQuizz)}
 						/>

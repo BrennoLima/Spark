@@ -3,19 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import './studenthome.css';
 import { ListGroup } from 'react-bootstrap';
 import { Collapse } from 'reactstrap';
-import { loadStudent, loadStudentExercises } from '../../actions/student';
+import { loadStudent } from '../../actions/student';
 import ExerciseItem from './ExerciseItem';
 
 const StudentHome = () => {
 	const dispatch = useDispatch();
 
 	const { loading, student } = useSelector((state) => state.student);
+
 	const activities = useSelector((state) => state.activities);
+
 	const [exerciseList, collapseExerciseList] = useState(true);
 	const [quizzesList, collapseQuizzesList] = useState(true);
+
 	useEffect(() => {
 		dispatch(loadStudent());
-		dispatch(loadStudentExercises());
 	}, [dispatch]);
 
 	return (
@@ -39,24 +41,26 @@ const StudentHome = () => {
 				</div>
 				<Collapse isOpen={exerciseList}>
 					<ListGroup>
-						{!loading && student !== null && student.exercises.length > 0 && (
-							<ListGroup.Item>
-								<div className='row'>
-									<div className='col-4'>
-										<h4>Exercise </h4>
-									</div>
-									<div className='col-4'>
-										<h4>Subject </h4>
-									</div>
-									<div className='col-2'>
-										<h4>Solve </h4>
-									</div>
-									<div className='col-2' />
-								</div>
-							</ListGroup.Item>
-						)}
 						{!activities.loading &&
-							activities.activities.length > 0 &&
+							activities.activities &&
+							activities.activities.length > 0 && (
+								<ListGroup.Item>
+									<div className='row'>
+										<div className='col-4'>
+											<h4>Exercise </h4>
+										</div>
+										<div className='col-4'>
+											<h4>Subject </h4>
+										</div>
+										<div className='col-2'>
+											<h4>Solve </h4>
+										</div>
+										<div className='col-2' />
+									</div>
+								</ListGroup.Item>
+							)}
+						{!activities.loading &&
+							activities.activities !== null &&
 							activities.activities.map((exercise) =>
 								exercise.isQuizz ? (
 									<></>
@@ -81,24 +85,26 @@ const StudentHome = () => {
 				</div>
 				<Collapse isOpen={quizzesList}>
 					<ListGroup>
-						{!loading && student !== null && student.exercises.length > 0 && (
-							<ListGroup.Item>
-								<div className='row'>
-									<div className='col-4'>
-										<h4>Quizz </h4>
+						{!activities.loading &&
+							activities.activities &&
+							activities.activities.length > 0 && (
+								<ListGroup.Item>
+									<div className='row'>
+										<div className='col-4'>
+											<h4>Quiz </h4>
+										</div>
+										<div className='col-4'>
+											<h4>Subject </h4>
+										</div>
+										<div className='col-1'>
+											<h4>Solve </h4>
+										</div>
+										<div className='col-3'>
+											<h4 className='c-align'>Marks</h4>
+										</div>
 									</div>
-									<div className='col-4'>
-										<h4>Subject </h4>
-									</div>
-									<div className='col-1'>
-										<h4>Solve </h4>
-									</div>
-									<div className='col-3'>
-										<h4 className='c-align'>Marks</h4>
-									</div>
-								</div>
-							</ListGroup.Item>
-						)}
+								</ListGroup.Item>
+							)}
 						{!activities.loading &&
 							activities.activities.length > 0 &&
 							activities.activities.map((exercise, index) =>
