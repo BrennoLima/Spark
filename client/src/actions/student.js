@@ -34,12 +34,10 @@ export const loadStudentExercises = () => async (dispatch) => {
 		res.data.exercises.map((exerciseId) =>
 			dispatch(loadStudentExercise(exerciseId, exerciseList))
 		);
-
 		dispatch({
 			type: LOAD_ACTIVITIES,
 			payload: exerciseList,
 		});
-		dispatch(setAlert('Activities loaded', 'success'));
 	} catch (error) {
 		dispatch({
 			type: LOAD_ACTIVITIES_FAIL,

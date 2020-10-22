@@ -13,7 +13,6 @@ import {
 export const LoadTeacherActivities = (teacherEmail) => async (dispatch) => {
 	try {
 		const res = await axios.get(`/api/exercise/${teacherEmail}`);
-		console.log(res.data);
 		dispatch({
 			type: LOAD_ACTIVITIES,
 			payload: res.data,

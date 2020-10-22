@@ -32,11 +32,11 @@ const SolveExerciseModal = ({ isOpen, setModal, activity }) => {
 	const onSubmit = (e) => {
 		e.preventDefault();
 		let marks = 0;
-		marks += marking(activity.answer1, a1);
-		marks += marking(activity.answer2, a2);
-		marks += marking(activity.answer3, a3);
-		marks += marking(activity.answer4, a4);
-		marks += marking(activity.answer5, a5);
+		marks += marking(activity.answer1.toUpperCase(), a1.toUpperCase());
+		marks += marking(activity.answer2.toUpperCase(), a2.toUpperCase());
+		marks += marking(activity.answer3.toUpperCase(), a3.toUpperCase());
+		marks += marking(activity.answer4.toUpperCase(), a4.toUpperCase());
+		marks += marking(activity.answer5.toUpperCase(), a5.toUpperCase());
 		if (activity.isQuizz) {
 			dispatch(
 				markExercise(student.student.email, activity._id, (marks * 100) / 5)
