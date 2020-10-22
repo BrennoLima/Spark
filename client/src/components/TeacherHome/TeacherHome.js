@@ -26,6 +26,7 @@ const TeacherHome = () => {
 	useEffect(() => {
 		dispatch(loadTeacher());
 	}, [dispatch]);
+
 	// Add students modal controllers
 	const [AddStudent, setAddStudent] = useState(false);
 	const closeAddStudent = () => setAddStudent(false);

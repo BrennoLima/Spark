@@ -8,17 +8,19 @@ import ExerciseItem from './ExerciseItem';
 
 const StudentHome = () => {
 	const dispatch = useDispatch();
-
-	const { loading, student } = useSelector((state) => state.student);
-
-	const activities = useSelector((state) => state.activities);
-
-	const [exerciseList, collapseExerciseList] = useState(true);
-	const [quizzesList, collapseQuizzesList] = useState(true);
-
 	useEffect(() => {
 		dispatch(loadStudent());
 	}, [dispatch]);
+
+	// Exercise list collapse controllers
+	const [exerciseList, collapseExerciseList] = useState(false);
+
+	// Quiz list collapse controllers
+	const [quizzesList, collapseQuizzesList] = useState(false);
+
+	const { student, loading } = useSelector((state) => state.student);
+
+	const activities = useSelector((state) => state.activities);
 
 	return (
 		<div className='container-fluid studenthome-container'>
@@ -71,7 +73,7 @@ const StudentHome = () => {
 					</ListGroup>
 				</Collapse>
 			</div>
-			<div className='container quizzes-list mt-3'>
+			<div className='container quizzes-list mt-5'>
 				<div className='row'>
 					<div className='col'>
 						<h2>Quizzes</h2>
