@@ -64,4 +64,11 @@
 	.panel-container {
 		min-height: none;
 	}
+	.landingpage-pic {
+		object-fit: contain;
+		width: 100vw;
+	}
+	.img-row {
+		margin: 0px !important;
+	}
 }

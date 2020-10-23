@@ -3,7 +3,8 @@ import './landing.css';
 import { Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
-import LandingPagePicture from '../../assets/images/landingPageMobile.png';
+import LandingPageMobile from '../../assets/images/landingPageMobile.png';
+import LandingPageDesktop from '../../assets/images/landingPageDesktop.png';
 import styled from 'styled-components';
 
 const Btn2 = styled(Button)`
@@ -24,6 +25,12 @@ const StyledLink = styled(Link)`
 `;
 
 const Landing = () => {
+	const width = document.documentElement.clientWidth;
+	let LandingPagePicture = LandingPageDesktop;
+	if (width < 900) {
+		LandingPagePicture = LandingPageMobile;
+	}
+
 	return (
 		<div className='container-fluid landing-container'>
 			<div className='row panel-container'>
@@ -71,7 +78,7 @@ const Landing = () => {
 					</div>
 				</div>
 				<div className='right-panel col-12 col-md-6'>
-					<div className='row'>
+					<div className='row img-row'>
 						<Image
 							src={LandingPagePicture}
 							alt='Young student'
