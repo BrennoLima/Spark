@@ -55,7 +55,7 @@ export const markExercise = (studentEmai, exerciseId, mark) => async (
 			payload: res.data,
 		});
 		dispatch(loadStudent());
-		dispatch(setAlert('Quiz marked'));
+		dispatch(setAlert('Quiz marked', 'info'));
 	} catch (error) {
 		dispatch({
 			type: ADD_MARK_FAIL,

@@ -43,7 +43,7 @@ const SolveExerciseModal = ({ isOpen, setModal, activity }) => {
 			);
 		} else {
 			dispatch(
-				setAlert(`${activity.title}, Marks: ${(marks * 100) / 5}% `, 'dark')
+				setAlert(`${activity.title}, Marks: ${(marks * 100) / 5}% `, 'info')
 			);
 		}
 		clearForm();
