@@ -20,7 +20,6 @@ const FooterComponent = () => {
 	return (
 		<div className='footer pb-1'>
 			<div className='empty1'></div>
-
 			<div className='footerContent'>
 				<FooterLink to='/aboutus'>
 					<p className='mb-0'>About Us</p>
