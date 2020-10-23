@@ -7,7 +7,7 @@ const AboutUs = () => {
 			<div className='mainContent pb-5 pt-5 pt-md-0'>
 				<div className='content'>
 					<article>
-						<h1>About Us</h1>
+						<h1 className='mb-4'>About Us</h1>
 						<p>
 							<span>Spark</span> Learning is a virtual education platform, which
 							is designed for everyone who is learning and looking for an
@@ -53,7 +53,7 @@ const AboutUs = () => {
 					</article>
 
 					<aside>
-						<h1>Testimony</h1>
+						<h1 className='mb-4 mt-4'>Testimony</h1>
 
 						<figure>
 							<blockquote>
