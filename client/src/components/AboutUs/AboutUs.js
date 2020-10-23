@@ -4,7 +4,7 @@ import './other.css';
 const AboutUs = () => {
 	return (
 		<div>
-			<div className='mainContent pb-3'>
+			<div className='mainContent pb-5 pt-5 pt-md-0'>
 				<div className='content'>
 					<article>
 						<h1>About Us</h1>
