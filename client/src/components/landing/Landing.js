@@ -77,7 +77,7 @@ const Landing = () => {
 						</div>
 					</div>
 				</div>
-				<div className='right-panel col-12 col-md-6'>
+				<div className='right-panel col-12 col-md-6 pb-5'>
 					<div className='row'>
 						<Image
 							src={LandingPagePicture}
