@@ -89,7 +89,7 @@ const Landing = () => {
 					<div className='row justify-content-center testimonials'>
 						<div className='col-12 col-md-5'>
 							<Toast>
-								<ToastHeader>
+								<ToastHeader className='p-2'>
 									<b>John Smith | Parent</b>
 								</ToastHeader>
 								<ToastBody>
@@ -101,7 +101,7 @@ const Landing = () => {
 						</div>
 						<div className='col-12 col-md-5 mt-2 mt-md-0 mb-2 mb-md-0'>
 							<Toast>
-								<ToastHeader>
+								<ToastHeader className='p-2'>
 									<b>Sarah Doe | Teacher</b>
 								</ToastHeader>
 								<ToastBody>

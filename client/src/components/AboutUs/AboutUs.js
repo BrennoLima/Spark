@@ -53,7 +53,7 @@ const AboutUs = () => {
 					</article>
 
 					<aside>
-						<h1 className='mb-4 mt-4'>Testimony</h1>
+						<h1 className='mb-4 mt-4 mt-md-0'>Testimony</h1>
 
 						<figure>
 							<blockquote>
