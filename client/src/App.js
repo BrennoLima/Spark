@@ -10,6 +10,8 @@ import TeacherHome from './components/TeacherHome/TeacherHome';
 import FooterComponent from './components/Footer/FooterComponent';
 import AboutUs from './components/AboutUs/AboutUs';
 import ContactUs from './components/AboutUs/ContactUs';
+import StudentAbout from './components/StudentTeacher/StudentAbout';
+import TeacherAbout from './components/StudentTeacher/TeacherAbout';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -37,6 +39,8 @@ const App = () => {
 					<PrivateRoute exact path='/teacherhome' component={TeacherHome} />
 					<Route exact path='/aboutus' component={AboutUs} />
 					<Route exact path='/contactus' component={ContactUs} />
+					<Route exact path='/aboutstudent' component={StudentAbout} />
+					<Route exact path='/aboutteacher' component={TeacherAbout} />
 				</Switch>
 				<FooterComponent />
 			</Router>

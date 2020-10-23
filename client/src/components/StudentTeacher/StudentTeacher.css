@@ -1,0 +1,170 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.screen {
+    width: 100%;
+    background: linear-gradient(#a8dda8, #fff8cd);
+}
+
+.contentM {
+    width: 70%;
+    margin: 0 auto;
+}
+
+    .contentM h1 {
+        padding-top: 3%;
+        text-align: center;
+        font-size: 2.7vw;
+    }
+
+    .contentM .greeting {
+        margin-left: 9%;
+    }
+
+    .contentM .firstGreeting {
+        padding-top: 4%;
+        font-size: 1.8vw;
+        color: #264353;
+    }
+
+    .contentM .endGreeting {
+        padding-bottom: 3%;
+        font-size: 1.8vw;
+        margin-bottom: 0;
+        color: #264353;
+    }
+
+    .contentM ul {
+        padding: 1% 4%;
+        margin-bottom: 0;
+    }
+
+    .contentM li {
+        font-size: 1.6vw;
+        font-weight: 600;
+        width: 35%;
+        background: linear-gradient(to right, #93D593, rgba(0, 0, 0, 0));
+        border-radius: 5%;
+    }
+
+    .contentM ul p {
+       font-size: 1.4vw;
+       margin-left: 2%;
+    }
+
+
+/*-------------------------Responsive--------------------------*/
+
+@media only screen and (max-width: 992px) {
+
+    .contentM h1 {
+        font-size: 3.1vw;
+    }
+
+    .contentM .greeting {
+        margin-left: 12%;
+    }
+
+    .contentM .firstGreeting, .contentM .endGreeting {
+        font-size: 2vw;
+    }
+
+    .contentM li {
+        font-size: 2vw;
+    }
+
+    .contentM ul p {
+        font-size: 1.8vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .contentM {
+        width: 80%;
+    }
+
+        .contentM .firstGreeting, .contentM .endGreeting {
+            font-size: 2.4vw;
+        }
+
+    .contentM h1 {
+        font-size: 3.5vw;
+    }
+
+    .contentM li {
+        font-size: 2.4vw;
+        width: 45%;
+    }
+
+    .contentM ul p {
+        font-size: 2.2vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .contentM h1 {
+        font-size: 3.9vw;
+    }
+
+    .contentM .firstGreeting, .contentM .endGreeting {
+        font-size: 2.8vw;
+    }
+
+    .contentM li {
+        font-size: 2.8vw;
+        width: 50%;
+    }
+
+    .contentM ul p {
+        font-size: 2.6vw;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    .contentM {
+        width: 90%;
+    }
+
+        .contentM .firstGreeting, .contentM .endGreeting {
+            font-size: 3.6vw;
+        }
+
+    .contentM h1 {
+        font-size: 4.8vw;
+    }
+
+    .contentM li {
+        font-size: 3.6vw;
+        width: 65%;
+    }
+
+    .contentM ul p {
+        font-size: 3.4vw;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+
+    .contentM h1 {
+        font-size: 5.6vw;
+    }
+
+    .contentM .firstGreeting, .contentM .endGreeting {
+        font-size: 4.2vw;
+    }
+
+    .contentM li {
+        font-size: 4.4vw;
+        width: 80%;
+    }
+
+    .contentM ul p {
+        font-size: 4.2vw;
+    }
+}
