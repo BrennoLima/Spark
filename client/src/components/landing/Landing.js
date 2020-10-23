@@ -3,7 +3,7 @@ import './landing.css';
 import { Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
-import LandingPagePicture from '../../assets/images/landingPagePic.png';
+import LandingPagePicture from '../../assets/images/landingPageMobile.png';
 import styled from 'styled-components';
 
 const Btn2 = styled(Button)`

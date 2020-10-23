@@ -3,15 +3,15 @@
 	padding: 0px !important;
 	font-family: 'Raleway', sans-serif;
 }
-
+.panel-container {
+	min-height: 85vh;
+}
 .left-panel {
 	background-color: #2a9d8f;
 	text-align: left;
-	padding-bottom: 3.7rem;
 }
 .right-panel {
 	background-color: #e9c46a;
-	padding-bottom: 3.7rem;
 }
 .about {
 	justify-content: center;
