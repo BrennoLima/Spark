@@ -12,6 +12,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import ContactUs from './components/AboutUs/ContactUs';
 import StudentAbout from './components/StudentTeacher/StudentAbout';
 import TeacherAbout from './components/StudentTeacher/TeacherAbout';
+import ScrollToTop from './components/layout/ScrollToTop';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -30,6 +31,7 @@ const App = () => {
 	return (
 		<Provider store={store}>
 			<Router>
+				<ScrollToTop />
 				<NavbarComponent />
 				<Alerts />
 				<Switch>
