@@ -12,8 +12,8 @@
 	height: 4px;
 	background: linear-gradient(
 		to right,
-		rgba(77, 136, 80, 0),
-		rgba(102, 182, 95, 0.75),
+		rgba(65, 95, 66, 0),
+		rgba(93, 129, 90, 0.75),
 		rgba(0, 0, 0, 0)
 	);
 }
@@ -22,8 +22,8 @@
 	height: 2px;
 	background: linear-gradient(
 		to right,
-		rgba(77, 136, 80, 0),
-		rgba(102, 182, 95, 0.75),
+		rgba(65, 95, 66, 0),
+		rgba(93, 129, 90, 0.75),
 		rgba(0, 0, 0, 0)
 	);
 }
